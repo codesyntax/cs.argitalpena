@@ -1,10 +1,32 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="cs.argitalpena">
 
     <include package="plone.app.contentmenu" />
-
+    <browser:page
+      for="..interfaces.Iargitalpena"
+      name="view"
+      class=".argitalpenaview.argitalpenaView"
+      template="argitalpenaview.pt"
+      permission="zope.Public"
+    />
+    <browser:menuItem
+        for="..interfaces.Iargitalpena"
+        menu="plone_displayviews"
+        title="argitalpena view"
+        action="@@view"
+        description="Default representation of a argitalpena"
+        />
     <!-- -*- extra stuff goes here -*- -->
-
+    <browser:page
+ 	     zcml:condition="installed zope.annotation"
+ 	     for="cs.donedukia.interfaces.IDonEdukia"
+ 	     name="argitalpenak_tabular_view"
+ 	     class="cs.donedukia.browser.donedukiaview.DonEdukiaView"
+ 	     template="argitalpenak_tabular_view.pt"
+ 	     allowed_interface="cs.donedukia.browser.donedukiaview.IDonEdukiaView"
+ 	     permission="zope2.View"
+ 	     />
 </configure>

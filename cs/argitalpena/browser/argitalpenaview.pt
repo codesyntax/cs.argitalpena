@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cs.argitalpena">
+<body>
+    <div metal:fill-slot="main">
+        
+	<h1 class="documentFirstHeading"> 
+	<span metal:use-macro="python:context.widget('title',
+				mode='view')" />
+	</h1>
+	<p class="documentDescription">
+		<span metal:use-macro="python:context.widget('description',
+					mode='view')" />
+	</p>
+
+ 	<div class="irudia"
+             tal:condition="here/image|nothing">
+            <a href="#"
+               tal:attributes="href string:$here_url/image/image_view_fullscreen"
+               id="parent-fieldname-image">
+               <img tal:replace="structure python: here.tag(scale='mini')" src="" alt="" />
+            </a>
+        </div>
+	
+	<tal:block
+		define="field_macro field_macro | here/widgets/field/macros/view"
+		repeat="field python:[here.getField(f) for f in ['file']]">
+		
+		<tal:if_visible define="mode string:view;
+					visState python:field.widget.isVisible(here, mode);
+					visCondition python:field.widget.testCondition(here, portal, template) and field.get_size(here);"
+				condition="python:visState == 'visible' and visCondition">
+		<metal:use_field use-macro="field_macro" />
+		</tal:if_visible>
+	</tal:block>
+	
+	
+	<div class="otherfiles" tal:define="contentFilter python:{'portal_type':'File'}; elementuak python:here.getFolderContents(contentFilter, full_objects=1)" tal:condition="elementuak">
+	<h2 i18n:translate="barruko-elementuak">Barruko elementuak</h2>
+	<tal:otherfiles repeat="obj elementuak">
+	
+	<tal:block
+		define="here nocall:obj;
+			field_macro field_macro | here/widgets/field/macros/view"
+		repeat="field python:[here.getField(f) for f in ['file']]">
+		
+		<tal:if_visible define="mode string:view;
+					visState python:field.widget.isVisible(here, mode);
+					visCondition python:field.widget.testCondition(here, portal, template) and field.get_size(here);
+					label_macro here/argitalpena_general/macros/titlelabel;
+					data_macro here/argitalpena_general/macros/data;"
+				condition="python:visState == 'visible' and visCondition">
+		<metal:use_field use-macro="field_macro" />
+		</tal:if_visible>
+		</tal:block>
+	</tal:otherfiles>
+	</div>
+    </div>
+</body>
+</html>

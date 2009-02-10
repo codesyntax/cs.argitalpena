@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="DonEdukia"
+   meta_type="Factory-based Type Information with dynamic views"
+   i18n:domain="cs.donedukia" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ 
+  <property name="view_methods" purge="False">
+    
+    <element value="argitalpenak_tabular_view"/>
+    
+  </property>
+</object>

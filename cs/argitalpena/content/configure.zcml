@@ -4,7 +4,19 @@
     i18n_domain="cs.argitalpena">
 
     <!-- configure your content components here -->
+    <class class=".argitalpena.argitalpena">
 
+        <require
+            permission="zope2.View"
+            interface="..interfaces.Iargitalpena"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.Iargitalpena"
+            />
+
+    </class>
     <!-- -*- extra stuff goes here -*- -->
 
 </configure>
