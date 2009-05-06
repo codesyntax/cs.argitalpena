@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2009-05-06 13:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./interfaces.py:20
+msgid "A short summary of this product"
+msgstr ""
+
+#: ./interfaces.py:19
+msgid "Description"
+msgstr ""
+
+#. Default: "Description of the Example Type"
+#: ./profiles/default/types/argitalpena.xml
+msgid "Description of the Example Type"
+msgstr ""
+
+#: ./interfaces.py:23
+msgid "File"
+msgstr ""
+
+#: ./content/argitalpena.py:27
+msgid "Image"
+msgstr ""
+
+#: ./interfaces.py:15
+msgid "Name"
+msgstr ""
+
+#. Default: "argitalpena"
+#: ./profiles/default/types/argitalpena.xml
+msgid "argitalpena"
+msgstr ""
+
+#. Default: "Barruko elementuak"
+#: ./browser/argitalpenaview.pt:40
+msgid "barruko-elementuak"
+msgstr ""
+
+#: ./content/argitalpena.py:38
+msgid "description_file"
+msgstr ""
+
+#: ./content/argitalpena.py:37
+msgid "file"
+msgstr ""
+

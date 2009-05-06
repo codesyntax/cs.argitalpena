@@ -34,10 +34,8 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 		  languageIndependent=True,
                   storage = atapi.AnnotationStorage(migrate=True),
                   widget=atapi.FileWidget(
-                     label='file',
-                     label_msgid='label_file',
-                     description_msgid='description_file',
-                     i18n_domain='aralar.content',
+                     label=_(u'file'),
+                     description_msgid=_(u'description_file'),
                      ),
                   ),
 
