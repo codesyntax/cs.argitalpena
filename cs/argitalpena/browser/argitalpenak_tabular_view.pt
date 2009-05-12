@@ -63,7 +63,7 @@
                                           item_creator item/Creator;
 					  item_obj python:item.getObject();
                                           ">
-				<a tal:attributes="href item_url">
+				<a tal:attributes="href string:${item_url}/at_download/file">
                <img tal:condition="item_obj/image|nothing" tal:replace="structure python: item_obj.tag(scale='mini')" src="" alt="" />
             </a>
                                 <span tal:attributes="class item_type_class"
