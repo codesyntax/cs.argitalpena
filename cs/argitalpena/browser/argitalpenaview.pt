@@ -17,7 +17,7 @@
  	<div class="irudia"
              tal:condition="here/image|nothing">
             <a href="#"
-               tal:attributes="href string:$here_url/image/image_view_fullscreen"
+               tal:attributes="href string:${here/absolute_url}/image/image_view_fullscreen"
                id="parent-fieldname-image">
                <img tal:replace="structure python: here.tag(scale='mini')" src="" alt="" />
             </a>
@@ -29,7 +29,7 @@
 		
 		<tal:if_visible define="mode string:view;
 					visState python:field.widget.isVisible(here, mode);
-					visCondition python:field.widget.testCondition(here, portal, template) and field.get_size(here);"
+					visCondition python:field.get_size(here);"
 				condition="python:visState == 'visible' and visCondition">
 		<metal:use_field use-macro="field_macro" />
 		</tal:if_visible>
@@ -47,7 +47,7 @@
 		
 		<tal:if_visible define="mode string:view;
 					visState python:field.widget.isVisible(here, mode);
-					visCondition python:field.widget.testCondition(here, portal, template) and field.get_size(here);
+					visCondition python:field.get_size(here);
 					label_macro here/argitalpena_general/macros/titlelabel;
 					data_macro here/argitalpena_general/macros/data;"
 				condition="python:visState == 'visible' and visCondition">

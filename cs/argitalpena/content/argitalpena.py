@@ -15,7 +15,7 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.ImageField('image',
                          required=False,
                          languageIndependent=True,
-			 storage = atapi.AnnotationStorage(migrate=True),
+			 storage = atapi.AnnotationStorage(),
                          sizes= {'large'   : (768, 768),
                                  'preview' : (400, 400),
                                  'mini'    : (200, 200),
@@ -32,7 +32,7 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 	atapi.FileField('file',
                   searchable=0,
 		  languageIndependent=True,
-                  storage = atapi.AnnotationStorage(migrate=True),
+                  storage = atapi.AnnotationStorage(),
                   widget=atapi.FileWidget(
                      label=_(u'file'),
                      description_msgid=_(u'description_file'),

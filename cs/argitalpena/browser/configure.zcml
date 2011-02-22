@@ -29,4 +29,21 @@
  	     allowed_interface="cs.donedukia.browser.donedukiaview.IDonEdukiaView"
  	     permission="zope2.View"
  	     />
+
+    <browser:page
+ 	     zcml:condition="installed zope.annotation"
+ 	     for="cs.donedukia.interfaces.IDonEdukia"
+ 	     name="azken_argitalpenak"
+ 	     class="cs.donedukia.browser.donedukiaview.DonEdukiaView"
+ 	     template="azken_argitalpenak.pt"
+ 	     allowed_interface="cs.donedukia.browser.donedukiaview.IDonEdukiaView"
+ 	     permission="zope2.View"
+ 	     />
+
+    <browser:page
+      for="*"
+      name="azkenargitalpenak"
+      class=".azkenargitalpenak.Azkenak"
+      permission="zope.Public"
+      />
 </configure>

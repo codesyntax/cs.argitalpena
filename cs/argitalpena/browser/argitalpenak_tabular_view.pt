@@ -9,11 +9,11 @@
     <div metal:fill-slot="main">
     <metal:main-macro define-macro="main">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions">
+        <!--<div metal:use-macro="here/document_actions/macros/document_actions">
             Document actions (print, sendto etc)
-        </div>
+        </div>-->
 
-        <h1 tal:content="object_title" class="documentFirstHeading">
+        <h1 tal:content="here/Title" class="documentFirstHeading">
             Title or id
         </h1>
 
@@ -34,8 +34,7 @@
                             use_view_action site_properties/typesUseViewActionInListings|python:();
                             over_limit python: limit_display and len(folderContents) > limit_display;
                             folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
-                            batch folderContents;
-                            show_about python:not isAnon or site_properties.allowAnonymousViewAbout">
+                            batch folderContents">
         <tal:listing condition="folderContents">
 
             <!-- Navigation -->
@@ -57,9 +56,9 @@
                                           item_type_title item/Type;
                                           item_modified item/ModificationDate;
                                           item_created item/CreationDate;
-                                          item_type_class python: 'visualIcon contenttype-' + normalizeString(item_type);
+                                          item_type_class python: 'visualIcon contenttype-argitalpena';
                                           item_wf_state        item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
-                                          item_wf_state_class python:'state-' + normalizeString(item_wf_state);
+                                          item_wf_state_class python:'state-published';
                                           item_creator item/Creator;
 					  item_obj python:item.getObject();
                                           ">
