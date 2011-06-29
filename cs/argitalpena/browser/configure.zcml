@@ -22,7 +22,7 @@
     <!-- -*- extra stuff goes here -*- -->
     <browser:page
  	     zcml:condition="installed zope.annotation"
- 	     for="cs.donedukia.interfaces.IDonEdukia"
+ 	     for="*"
  	     name="argitalpenak_tabular_view"
  	     class="cs.donedukia.browser.donedukiaview.DonEdukiaView"
  	     template="argitalpenak_tabular_view.pt"
