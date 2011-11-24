@@ -32,6 +32,10 @@
 					visCondition python:field.get_size(here);"
 				condition="python:visState == 'visible' and visCondition">
 		<metal:use_field use-macro="field_macro" />
+
+
+
+                <iframe tal:attributes="src string:http://docs.google.com/viewer?url=${here/absolute_url}/file/&embedded=true" width="600" height="780" style="border: none;"></iframe>
 		</tal:if_visible>
 	</tal:block>
 	
