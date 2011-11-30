@@ -6,13 +6,13 @@ except ImportError:
     from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
-
+from plone.app.blob.field import ImageField,FileField
 from cs.argitalpena import argitalpenaMessageFactory as _
 from cs.argitalpena.interfaces import Iargitalpena
 from cs.argitalpena.config import PROJECTNAME
 
 argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
-    atapi.ImageField('image',
+    ImageField('image',
                          required=False,
                          languageIndependent=True,
 			 storage = atapi.AnnotationStorage(),
@@ -29,7 +29,7 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
                                                   ),
                          ),
 
-	atapi.FileField('file',
+	FileField('file',
                   searchable=0,
 		  languageIndependent=True,
                   storage = atapi.AnnotationStorage(),
