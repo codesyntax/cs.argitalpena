@@ -35,7 +35,7 @@
 
 
 
-                <iframe tal:attributes="src string:http://docs.google.com/viewer?url=${here/absolute_url}/file/&embedded=true" width="600" height="780" style="border: none;"></iframe>
+                <iframe tal:attributes="src string:http://docs.google.com/viewer?url=${here/absolute_url}/at_download/file/&embedded=true" width="600" height="780" style="border: none;"></iframe>
 		</tal:if_visible>
 	</tal:block>
 	
