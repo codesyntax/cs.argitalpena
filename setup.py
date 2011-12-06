@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.5'
+version = '2.0'
 
 long_description = (
     read('README.txt')
@@ -61,12 +61,10 @@ setup(name='cs.argitalpena',
       extras_require=dict(tests=tests_require),
       test_suite = 'cs.argitalpena.tests.test_docs.test_suite',
       entry_points="""
-      # -*- entry_points -*- 
-      [distutils.setup_keywords]
-      paster_plugins = setuptools.dist:assert_string_list
+      # -*- Entry points: -*-
 
-      [egg_info.writers]
-      paster_plugins.txt = setuptools.command.egg_info:write_arg
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       paster_plugins = ["ZopeSkel"],
       )
