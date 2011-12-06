@@ -61,16 +61,19 @@ class argitalpena(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
     file=atapi.ATFieldProperty('file')
     image=atapi.ATFieldProperty('image')
+
+    # XXX Why is this needed [erral]
     security = ClassSecurityInfo()
     security.declarePrivate('cmf_edit')
+
+
+    
     def tag(self, **kwargs):
-        
         if 'title' not in kwargs:
             kwargs['title'] = self.title
         return self.getField('image').tag(self, **kwargs)
     
     def __bobo_traverse__(self, REQUEST, name):
-        
         if name.startswith('image'):
             field = self.getField('image')
             image = None
