@@ -8,7 +8,7 @@ from cs.argitalpena import argitalpenaMessageFactory as _
 
 # -*- extra stuff goes here -*-
 class Iargitalpena(Interface):
-    """Description of the Example Type"""
+    """A publication object that can save multiple files and an image"""
     
 
 
@@ -17,14 +17,14 @@ class Iargitalpena(Interface):
                             )
 			    
     description = schema.TextLine(title=_(u'Description'),
-                                  description=_(u'A short summary of this product'),
+                                  description=_(u'Enter the description of this publication'),
                                   )
 				  
     file = schema.TextLine(title=_(u'File'),
-                                  description=_(u'File'),
+                           description=_(u'File description'),
                                   )
 
-    image = schema.TextLine(title=_(u'Image'),
-                                  description=_(u'Image'),
+    image = schema.TextLine(title=_(u'Image', default=u'The image of this publication'),
+                            description=_(u'Image description'),
                                   )
 				  

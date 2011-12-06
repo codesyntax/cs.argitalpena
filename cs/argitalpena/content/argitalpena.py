@@ -24,7 +24,7 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
                                  'icon'    :  (32, 32),
                                  'listing' :  (16, 16),
                                  },
-                         widget=atapi.ImageWidget(label=_(u'Image', default=u'The image of this argitalpena'),
+                         widget=atapi.ImageWidget(label=_(u'Image', default=u'The image of this publication'),
                                                   show_content_type=False,
                                                   ),
                          ),
@@ -34,8 +34,8 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 		  languageIndependent=True,
                   storage = atapi.AnnotationStorage(),
                   widget=atapi.FileWidget(
-                     label=_(u'file'),
-                     description_msgid=_(u'description_file'),
+                     label=_(u'File'),
+                     description_msgid=_(u'File description'),
                      ),
                   ),
 
@@ -52,7 +52,7 @@ argitalpenaSchema['description'].storage = atapi.AnnotationStorage()
 schemata.finalizeATCTSchema(argitalpenaSchema, folderish=True, moveDiscussion=False)
 
 class argitalpena(folder.ATFolder):
-    """Description of the Example Type"""
+    """A publication object that can save multiple files and an image"""
     implements(Iargitalpena)
 
     portal_type = "argitalpena"

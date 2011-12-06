@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-05-06 13:16+0000\n"
-"PO-Revision-Date: 2009-05-06 15:19+0100\n"
-"Last-Translator: lur <libargutxi@codesyntax.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: cs.argitalpena\n"
+"POT-Creation-Date: 2011-12-06 17:12+0000\n"
+"PO-Revision-Date: 2011-12-06 18:11+0100\n"
+"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
+"Language-Team: es <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,27 +13,39 @@ msgstr ""
 "Language-Name: Espanish\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+"X-Poedit-Language: Spanish\n"
 
-#: ./interfaces.py:20
-msgid "A short summary of this product"
-msgstr ""
+#: ./profiles/default/types/argitalpena.xml
+msgid "A publication object that can save multiple files and an image"
+msgstr "Una publicación puede contener más de un archivo (uno será siempre el archivo principal) y una imagen."
 
 #: ./interfaces.py:19
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
-#. Default: "Description of the Example Type"
-#: ./profiles/default/types/argitalpena.xml
-msgid "Description of the Example Type"
-msgstr ""
+#: ./interfaces.py:20
+msgid "Enter the description of this publication"
+msgstr "Introduzca una pequeña descripción de esta publicación"
 
+#: ./content/argitalpena.py:37
 #: ./interfaces.py:23
 msgid "File"
 msgstr "Fichero"
 
+#: ./content/argitalpena.py:38
+#: ./interfaces.py:24
+msgid "File description"
+msgstr "Este será el archivo principal que se mostrará utilizando el visor de Google Viewer y que se ofrecerá como descarga en la página principal de la publicación."
+
+#. Default: "The image of this publication"
 #: ./content/argitalpena.py:27
+#: ./interfaces.py:27
 msgid "Image"
 msgstr "Imagen"
+
+#: ./interfaces.py:28
+msgid "Image description"
+msgstr "Esta será la imagen que represente a la publicación (normalmente la primera página). Se mostrará en los listados de publicaciones."
 
 #: ./interfaces.py:15
 msgid "Name"
@@ -42,18 +54,10 @@ msgstr "Nombre"
 #. Default: "argitalpena"
 #: ./profiles/default/types/argitalpena.xml
 msgid "argitalpena"
-msgstr "publicación"
+msgstr "Publicación"
 
-#. Default: "Barruko elementuak"
-#: ./browser/argitalpenaview.pt:40
-msgid "barruko-elementuak"
-msgstr "Elementos internos"
-
-#: ./content/argitalpena.py:38
-msgid "description_file"
-msgstr ""
-
-#: ./content/argitalpena.py:37
-msgid "file"
-msgstr "Fichero"
+#. Default: "Your browser does not support iframes. Download the document at ${link}"
+#: ./browser/argitalpenaview.pt:30
+msgid "label_argitalpena_does_not_support_iframes"
+msgstr "Su navegador no soporta iframes. Puede descargar el archivo original aquí ${link}"
 

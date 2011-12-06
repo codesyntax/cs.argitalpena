@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-05-06 13:16+0000\n"
+"POT-Creation-Date: 2011-12-06 17:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,46 +14,48 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./interfaces.py:20
-msgid "A short summary of this product"
+#: ./profiles/default/types/argitalpena.xml
+msgid "A publication object that can save multiple files and an image"
 msgstr ""
 
 #: ./interfaces.py:19
 msgid "Description"
 msgstr ""
 
-#. Default: "Description of the Example Type"
-#: ./profiles/default/types/argitalpena.xml
-msgid "Description of the Example Type"
+#: ./interfaces.py:20
+msgid "Enter the description of this publication"
 msgstr ""
 
+#: ./content/argitalpena.py:37
 #: ./interfaces.py:23
 msgid "File"
 msgstr ""
 
+#: ./content/argitalpena.py:38
+#: ./interfaces.py:24
+msgid "File description"
+msgstr ""
+
+#. Default: "The image of this publication"
 #: ./content/argitalpena.py:27
+#: ./interfaces.py:27
 msgid "Image"
+msgstr ""
+
+#: ./interfaces.py:28
+msgid "Image description"
 msgstr ""
 
 #: ./interfaces.py:15
 msgid "Name"
 msgstr ""
 
-#. Default: "argitalpena"
 #: ./profiles/default/types/argitalpena.xml
 msgid "argitalpena"
 msgstr ""
 
-#. Default: "Barruko elementuak"
-#: ./browser/argitalpenaview.pt:40
-msgid "barruko-elementuak"
-msgstr ""
-
-#: ./content/argitalpena.py:38
-msgid "description_file"
-msgstr ""
-
-#: ./content/argitalpena.py:37
-msgid "file"
+#. Default: "Your browser does not support iframes. Download the document at ${link}"
+#: ./browser/argitalpenaview.pt:30
+msgid "label_argitalpena_does_not_support_iframes"
 msgstr ""
 
