@@ -1,17 +1,23 @@
 .. contents::
 
-.. Note!
-   -----
-   Update the following URLs to point to your:
+Publications in Plone
+-----------------------
 
-   - code repository
-   - bug tracker
-   - questions/comments feedback mail
-   (do not set a real mail, to avoid spams)
+This product adds a new content-type to add publications to your site. A publication is a folderish object
+that has a file field to save the main publication and an image, usually to save the first page.
 
-   Or remove it if not used.
+It also has the way to add additional files (in a folderish sense of the word, you can add them to the main
+object), and they will be shown next to the main file.
 
-- Code repository: http://svn.somewhere.com/...
-- Questions and comments to somemailing_list
-- Report bugs at http://bug.somewhere.com/..
+Also, main file is shown using Google DocViewer, a simple iframe to show the contents of a file. Caution! 
+Google Doc Viewer only works with files available on the Internet, so if your site is running in a Intranet
+environment it won't work and you will have to override its main view.
+
+It also offers a view for Folderish items, to show the Publications inside it in a tabular way
+
+
+TO-DO
+======
+
+- Create the image automatically
 
