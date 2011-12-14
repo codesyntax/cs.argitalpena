@@ -72,10 +72,10 @@
                                                    class string:$item_wf_state_class visualIconPadding;
                                                    title item_description;">
                                   <span tal:content="item_title_or_id"></span>
-                                  <img tal:attributes="src string:${here/absolute_url}/pdf.png" />
+                                  <!--<img tal:attributes="src string:${here/absolute_url}/pdf.png" />-->
                                 </a><br/>
                                 </span>
-
+                                
                                 <tal:to_external condition="python:item_type == 'Link'">
                                     <span tal:attributes="class item_type_class">
                                     <a href="#"

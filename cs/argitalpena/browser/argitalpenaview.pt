@@ -7,30 +7,24 @@
     <metal:ccore fill-slot="content-core">
       <div class="irudia"
            tal:condition="here/image|nothing">
-        <a href="#"
+        <!--<a href="#"
            tal:attributes="href string:${here/absolute_url}/image/image_view_fullscreen"
            id="parent-fieldname-image">
           <img tal:replace="structure python: here.tag(scale='mini')" src="" alt="" />
-        </a>
+        </a>-->
       </div>
       
-      <tal:block
-          define="field_macro field_macro | here/widgets/field/macros/view"
-          repeat="field python:[here.getField(f) for f in ['file']]">
-        
-        <tal:if_visible define="mode string:view;
-                                visState python:field.widget.isVisible(here, mode);
-                                visCondition python:field.get_size(here);"
-                        condition="python:visState == 'visible' and visCondition">
-          <metal:use_field use-macro="field_macro" />
+
+<span metal:use-macro="python:context.widget('file',
+					mode='view')" />
+
           <iframe tal:attributes="src string:http://docs.google.com/viewer?url=${here/absolute_url}/at_download/file&embedded=true" 
-                  width="600" height="780" 
+                  width="98%" height="780" 
                   style="border: none;"
                   i18n:translate="label_argitalpena_does_not_support_iframes">
               Your browser does not support iframes. Download the document at <a i18n:name="link" href="" tal:attributes="href string:${here/absolute_url}/at_download/file" tal:content="string:${here/absolute_url}/at_download/file">http://my.file.com/download.pdf</a>
           </iframe>
-        </tal:if_visible>
-      </tal:block>
+
       
       
       <div class="otherfiles" 
@@ -39,25 +33,7 @@
            tal:condition="elementuak"
            tal:replace="nothing">
         <h2 i18n:translate="barruko-elementuak">Barruko elementuak</h2>
-        <tal:otherfiles repeat="obj elementuak">        
-          <tal:block
-              define="here nocall:obj;
-                      field_macro field_macro | here/widgets/field/macros/view"
-              repeat="field python:[here.getField(f) for f in ['file']]">
-            
-            <tal:if_visible define="mode string:view;
-                                    visState python:field.widget.isVisible(here, mode);
-                                    visCondition python:field.get_size(here);
-                                    label_macro here/argitalpena_general/macros/titlelabel;
-                                    data_macro here/argitalpena_general/macros/data;"
-                            condition="python:visState == 'visible' and visCondition">
-              <metal:use_field use-macro="field_macro" />
-            </tal:if_visible>
-          </tal:block>
-        </tal:otherfiles>
-      </div>
-
-      <tal:fitxategiak tal:define="fitxategiak python:context.getFolderContents({'portal_type':'File'}, full_objects=1)" 
+        <tal:fitxategiak tal:define="fitxategiak python:context.getFolderContents({'portal_type':'File'}, full_objects=1)" 
                        tal:condition="fitxategiak">
         <tal:otherfiles repeat="context fitxategiak">
           <span metal:use-macro="python:context.widget('file',
@@ -65,6 +41,9 @@
           <br />
         </tal:otherfiles>
       </tal:fitxategiak>
+      </div>
+
+      
     </metal:ccore>
   </body>
 </html>
