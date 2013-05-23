@@ -5,6 +5,7 @@ This module contains the tool of cs.argitalpena
 import os
 from setuptools import setup, find_packages
 
+
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
@@ -19,13 +20,11 @@ long_description = (
     read('CHANGES.txt')
     )
 
-tests_require=['zope.testing']
 
 setup(name='cs.argitalpena',
       version=version,
       description="",
       long_description=long_description,
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         'Framework :: Plone',
         'Intended Audience :: Developers',
@@ -44,14 +43,10 @@ setup(name='cs.argitalpena',
       install_requires=['setuptools',
                         # -*- Extra requirements: -*-
                         ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
-      test_suite = 'cs.argitalpena.tests.test_docs.test_suite',
       entry_points="""
       # -*- Entry points: -*-
 
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      paster_plugins = ["ZopeSkel"],
       )
