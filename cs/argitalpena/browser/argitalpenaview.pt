@@ -7,43 +7,32 @@
     <metal:ccore fill-slot="content-core">
       <div class="irudia"
            tal:condition="here/image|nothing">
-        <!--<a href="#"
-           tal:attributes="href string:${here/absolute_url}/image/image_view_fullscreen"
-           id="parent-fieldname-image">
-          <img tal:replace="structure python: here.tag(scale='mini')" src="" alt="" />
-        </a>-->
       </div>
-      
 
-<span metal:use-macro="python:context.widget('file',
-					mode='view')" />
+      <span metal:use-macro="python:context.widget('file', mode='view')" />
 
-          <iframe tal:attributes="src string:http://docs.google.com/viewer?url=${here/absolute_url}/at_download/file&embedded=true" 
-                  width="98%" height="780" 
-                  style="border: none;"
-                  i18n:translate="label_argitalpena_does_not_support_iframes">
-              Your browser does not support iframes. Download the document at <a i18n:name="link" href="" tal:attributes="href string:${here/absolute_url}/at_download/file" tal:content="string:${here/absolute_url}/at_download/file">http://my.file.com/download.pdf</a>
-          </iframe>
+        <iframe tal:attributes="src string:http://docs.google.com/viewer?url=${here/absolute_url}/at_download/file&embedded=true"
+                width="98%" height="780"
+                style="border: none;"
+                i18n:translate="label_argitalpena_does_not_support_iframes">
+            Your browser does not support iframes. Download the document at <a i18n:name="link" href="" tal:attributes="href string:${here/absolute_url}/at_download/file" tal:content="string:${here/absolute_url}/at_download/file">http://my.file.com/download.pdf</a>
+        </iframe>
 
-      
-      
-      <div class="otherfiles" 
-           tal:define="contentFilter python:{'portal_type':'File'}; 
-                       elementuak python:here.getFolderContents(contentFilter, full_objects=1)" 
+      <div class="otherfiles"
+           tal:define="contentFilter python:{'portal_type':'File'};
+                       elementuak python:here.getFolderContents(contentFilter, full_objects=1)"
            tal:condition="elementuak"
            tal:replace="nothing">
         <h2 i18n:translate="barruko-elementuak">Barruko elementuak</h2>
-        <tal:fitxategiak tal:define="fitxategiak python:context.getFolderContents({'portal_type':'File'}, full_objects=1)" 
+        <tal:fitxategiak tal:define="fitxategiak python:context.getFolderContents({'portal_type':'File'}, full_objects=1)"
                        tal:condition="fitxategiak">
-        <tal:otherfiles repeat="context fitxategiak">
-          <span metal:use-macro="python:context.widget('file',
-                                 mode='view')" />
-          <br />
-        </tal:otherfiles>
-      </tal:fitxategiak>
+          <tal:otherfiles repeat="context fitxategiak">
+            <span metal:use-macro="python:context.widget('file',
+                                   mode='view')" />
+            <br />
+          </tal:otherfiles>
+        </tal:fitxategiak>
       </div>
-
-      
     </metal:ccore>
   </body>
 </html>

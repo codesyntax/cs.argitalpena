@@ -1,4 +1,4 @@
- 
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
@@ -6,27 +6,12 @@
 
 <body>
 
-    <div metal:fill-slot="main">
-    <metal:main-macro define-macro="main">
-
-        <!--<div metal:use-macro="here/document_actions/macros/document_actions">
-            Document actions (print, sendto etc)
-        </div>-->
-
-        <h1 tal:content="here/Title" class="documentFirstHeading">
-            Title or id
-        </h1>
-
-        <p class="documentDescription"
-           tal:content="here/Description"
-           tal:condition="here/Description">
-            Description
-        </p>
-
+    <div metal:fill-slot="content-core">
+    <metal:main-macro define-macro="content-core">
         <metal:listingmacro define-macro="listing">
         <tal:foldercontents define="contentFilter python:{'portal_type':'argitalpena', 'sort_on':'effective', 'sort_order': 'reverse'};
-        							 contentFilter contentFilter|request/contentFilter|nothing;
-        					limit_display python:10;
+                            contentFilter contentFilter|request/contentFilter|nothing;
+                            limit_display python:10;
                             limit_display limit_display|request/limit_display|nothing;
                             more_url more_url|request/more_url|string:folder_contents;
                             contentsMethod python:here.portal_type=='Topic' and here.queryCatalog or here.getFolderContents;
@@ -39,10 +24,6 @@
 
             <!-- Navigation -->
             <div metal:use-macro="here/batch_macros/macros/navigation" />
-
-            
-
-                
                     <tal:items repeat="item folderContents">
                     <div class="argitalpena" metal:define-macro="listitem"
                         tal:define="oddrow repeat/item/odd;"
@@ -60,11 +41,11 @@
                                           item_wf_state        item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
                                           item_wf_state_class python:'state-published';
                                           item_creator item/Creator;
-					  item_obj python:item.getObject();
+                                          item_obj python:item.getObject();
                                           ">
-				<a tal:attributes="href string:${item_url}/at_download/file">
-               <img tal:condition="item_obj/image|nothing" tal:replace="structure python: item_obj.tag(scale='mini')" src="" alt="" />
-            </a>
+                                <a tal:attributes="href string:${item_url}/at_download/file">
+                                     <img tal:condition="item_obj/image|nothing" tal:replace="structure python: item_obj.tag(scale='mini')" src="" alt="" />
+                                </a>
                                 <span tal:attributes="class item_type_class"
                                       tal:condition="python:item_type != 'Link'">
                                 <a href="#"
@@ -72,10 +53,9 @@
                                                    class string:$item_wf_state_class visualIconPadding;
                                                    title item_description;">
                                   <span tal:content="item_title_or_id"></span>
-                                  <!--<img tal:attributes="src string:${here/absolute_url}/pdf.png" />-->
                                 </a><br/>
                                 </span>
-                                
+
                                 <tal:to_external condition="python:item_type == 'Link'">
                                     <span tal:attributes="class item_type_class">
                                     <a href="#"
@@ -87,19 +67,12 @@
                                     </a>
                                     </span>
                                 </tal:to_external>
-                                
-                            
-
-                          
-
-                            
-
-
                         </tal:defs>
                     </div>
                     </tal:items>
-		    <br clear="all" />
-                
+
+        <br clear="all" />
+
             <!-- Navigation -->
             <div metal:use-macro="here/batch_macros/macros/navigation" />
 
@@ -121,4 +94,4 @@
     </div>
 
 </body>
-</html> 
+</html>

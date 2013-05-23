@@ -5,13 +5,14 @@
     i18n_domain="cs.argitalpena">
 
     <include package="plone.app.contentmenu" />
+
     <browser:page
       for="..interfaces.Iargitalpena"
       name="view"
-      class=".argitalpenaview.argitalpenaView"
       template="argitalpenaview.pt"
-      permission="zope.Public"
+      permission="zope2.View"
     />
+
     <browser:menuItem
         for="..interfaces.Iargitalpena"
         menu="plone_displayviews"
@@ -19,31 +20,27 @@
         action="@@view"
         description="Default representation of a argitalpena"
         />
+
     <!-- -*- extra stuff goes here -*- -->
     <browser:page
- 	     zcml:condition="installed zope.annotation"
  	     for="*"
  	     name="argitalpenak_tabular_view"
- 	     class="cs.donedukia.browser.donedukiaview.DonEdukiaView"
  	     template="argitalpenak_tabular_view.pt"
- 	     allowed_interface="cs.donedukia.browser.donedukiaview.IDonEdukiaView"
  	     permission="zope2.View"
  	     />
 
     <browser:page
- 	     zcml:condition="installed zope.annotation"
- 	     for="cs.donedukia.interfaces.IDonEdukia"
+ 	     for="*"
  	     name="azken_argitalpenak"
- 	     class="cs.donedukia.browser.donedukiaview.DonEdukiaView"
+       class=".azken_argitalpenak.AzkenArgitalpenak"
  	     template="azken_argitalpenak.pt"
- 	     allowed_interface="cs.donedukia.browser.donedukiaview.IDonEdukiaView"
  	     permission="zope2.View"
  	     />
 
-    <browser:page
+<!--     <browser:page
       for="*"
       name="azkenargitalpenak"
       class=".azkenargitalpenak.Azkenak"
-      permission="zope.Public"
-      />
+      permission="zope2.View"
+      /> -->
 </configure>

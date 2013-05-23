@@ -8,25 +8,11 @@
 
 <body>
 
-    <div metal:fill-slot="main">
-    <metal:main-macro define-macro="main"
+    <div metal:fill-slot="content-core">
+    <metal:main-macro define-macro="content-core"
                       tal:define="kssClassesView context/@@kss_field_decorator_view;
                                   getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                                   templateId template/getId">
-
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-        <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">
-            Title or id
-        </h1>
-
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-        <p metal:use-macro="here/kss_generic_macros/macros/generic_description_view">
-            Description
-        </p>
-
-        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div metal:define-macro="text-field-view"
              id="parent-fieldname-text" class="stx"
@@ -40,7 +26,7 @@
         </div>
 
         <metal:listingmacro define-macro="listing">
-          <tal:ultimas define="lista here/@@azkenargitalpenak">
+          <tal:ultimas define="lista view/azken_argitalpenak">
             <tal:repeat repeat="seccion lista">
             <div class="seccion">
               <h2><a tal:content="seccion/title" tal:attributes="href string:${seccion/url}"></a></h2>
@@ -54,8 +40,6 @@
         </metal:listingmacro>
 
         <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
-
-        <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </metal:main-macro>
     </div>
