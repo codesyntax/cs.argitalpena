@@ -1,6 +1,15 @@
 Changelog
 =========
 
+2.2 (2014-03-04)
+------------------
+
+ - Set 'file' to be the primary field
+   [erral]
+
+ - Implement IFileContent
+   [erral]
+
 2.1 (2013/05/23)
 -----------------------
 
