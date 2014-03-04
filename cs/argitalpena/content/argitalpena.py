@@ -34,6 +34,7 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     FileField('file',
                 searchable=0,
                 languageIndependent=True,
+                primary=True,
                 storage=atapi.AnnotationStorage(),
                 widget=atapi.FileWidget(
                         label=_(u'File'),
