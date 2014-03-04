@@ -1,4 +1,3 @@
-.. contents::
 
 Publications in Plone
 -----------------------
@@ -9,15 +8,21 @@ that has a file field to save the main publication and an image, usually to save
 It also has the way to add additional files (in a folderish sense of the word, you can add them to the main
 object), and they will be shown next to the main file.
 
-Also, main file is shown using Google DocViewer, a simple iframe to show the contents of a file. Caution! 
+Also, main file is shown using Google DocViewer, a simple iframe to show the contents of a file. Caution!
 Google Doc Viewer only works with files available on the Internet, so if your site is running in a Intranet
 environment it won't work and you will have to override its main view.
+
+This product is also compatible with `collective.documentviewer`_ so if you are using this
+product you can use the viewer provided by it.
 
 It also offers a view for Folderish items, to show the Publications inside it in a tabular way
 
 
 TO-DO
-======
+--------
 
 - Create the image automatically
+
+
+.. _`collective.documentviewer`: https://pypi.python.org/pypi/collective.documentviewer
 
