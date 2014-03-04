@@ -6,6 +6,7 @@ except ImportError:
     from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from Products.ATContentTypes.interface.file import IFileContent
 from plone.app.blob.field import ImageField, FileField
 from cs.argitalpena import argitalpenaMessageFactory as _
 from cs.argitalpena.interfaces import Iargitalpena
@@ -54,7 +55,7 @@ schemata.finalizeATCTSchema(argitalpenaSchema,
 
 class argitalpena(folder.ATFolder):
     """A publication object that can save multiple files and an image"""
-    implements(Iargitalpena)
+    implements(Iargitalpena, IFileContent)
 
     portal_type = "argitalpena"
     schema = argitalpenaSchema
