@@ -11,6 +11,8 @@ from plone.app.blob.field import ImageField, FileField
 from cs.argitalpena import argitalpenaMessageFactory as _
 from cs.argitalpena.interfaces import Iargitalpena
 from cs.argitalpena.config import PROJECTNAME
+from ZODB.POSException import ConflictError
+from Products.CMFPlone.utils import getToolByName
 
 argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     ImageField('image',
@@ -32,8 +34,9 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     ),
 
     FileField('file',
-                searchable=0,
+                searchable=1,
                 languageIndependent=True,
+                index_method = 'getIndexValue',
                 primary=True,
                 storage=atapi.AnnotationStorage(),
                 widget=atapi.FileWidget(
@@ -90,5 +93,30 @@ class argitalpena(folder.ATFolder):
                 return image
 
         return folder.ATFolder.__bobo_traverse__(self, REQUEST, name)
+
+    security.declarePrivate('getIndexValue')
+    def getIndexValue(self, mimetype='text/plain'):
+        """ an accessor method used for indexing the field's value
+            XXX: the implementation is mostly based on archetype's
+            `FileField.getIndexable` and rather naive as all data gets
+            loaded into memory if a suitable transform was found.
+            this should probably use `plone.transforms` in the future """
+
+        field = self.getPrimaryField()
+        source = field.getContentType(self)
+        transforms = getToolByName(self, 'portal_transforms')
+        if transforms._findPath(source, mimetype) is None:
+            return ''
+        value = str(field.get(self))
+        filename = field.getFilename(self)
+        try:
+            return str(transforms.convertTo(mimetype, value,
+                mimetype=source, filename=filename))
+        except (ConflictError, KeyboardInterrupt):
+            raise
+        except:
+            getLogger(__name__).exception('exception while trying to convert '
+               'blob contents to "text/plain" for %r', self)
+
 
 atapi.registerType(argitalpena, PROJECTNAME)
