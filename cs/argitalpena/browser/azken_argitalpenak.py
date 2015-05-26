@@ -25,5 +25,5 @@ class AzkenArgitalpenak(BrowserView):
                 argitalpenlista.append(azkena)
 
         b_start = context.REQUEST.get('b_start', 0)
-        batch = Batch(argitalpenlista, 10, int(b_start), orphan=0)
+        batch = Batch(argitalpenlista, 12, int(b_start), orphan=0)
         return batch
