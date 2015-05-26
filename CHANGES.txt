@@ -1,10 +1,19 @@
 Changelog
 =========
 
-2.2 (2014-03-04)
-------------------
+2.3 (2015-05-26)
+----------------
 
- - Set 'file' to be the primary field
+- mark file field as indexable and provide an index method [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- batch size [Lur Ibargutxi <libargutxi@codesyntax.com>]
+
+- size [Lur Ibargutxi <libargutxi@codesyntax.com>]
+
+- remove egg-info directory [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- Updating version on trunk after tagging [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
    [erral]
 
  - Implement IFileContent
