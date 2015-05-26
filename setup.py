@@ -14,16 +14,13 @@ version = '2.4.dev0'
 long_description = (
     read('README.txt')
     + '\n' +
-    'Change history\n'
-    '**************\n'
-    + '\n' +
     read('CHANGES.txt')
     )
 
 
 setup(name='cs.argitalpena',
       version=version,
-      description="",
+      description="Publications in Plone",
       long_description=long_description,
       classifiers=[
         'Framework :: Plone',

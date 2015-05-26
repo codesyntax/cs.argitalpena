@@ -20,7 +20,9 @@ Changelog
 
 - Updating version on trunk after tagging [Mikel Larreategi <mlarreategi@codesyntax.com>]
 
-   [erral]
+2.2 (2014-04-04)
+----------------
+
 
  - Implement IFileContent
    [erral]
