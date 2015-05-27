@@ -1,18 +1,20 @@
-from zope.interface import implements
 from AccessControl import ClassSecurityInfo
+from cs.argitalpena import argitalpenaMessageFactory as _
+from cs.argitalpena.config import PROJECTNAME
+from cs.argitalpena.interfaces import Iargitalpena
+from logging import getLogger
+from plone.app.blob.field import ImageField, FileField
+from Products.ATContentTypes.content import folder
+from Products.ATContentTypes.content import schemata
+from Products.ATContentTypes.interface.file import IFileContent
+from Products.CMFPlone.utils import getToolByName
+from ZODB.POSException import ConflictError
+from zope.interface import implements
+
 try:
     from Products.LinguaPlone import public as atapi
 except ImportError:
     from Products.Archetypes import atapi
-from Products.ATContentTypes.content import folder
-from Products.ATContentTypes.content import schemata
-from Products.ATContentTypes.interface.file import IFileContent
-from plone.app.blob.field import ImageField, FileField
-from cs.argitalpena import argitalpenaMessageFactory as _
-from cs.argitalpena.interfaces import Iargitalpena
-from cs.argitalpena.config import PROJECTNAME
-from ZODB.POSException import ConflictError
-from Products.CMFPlone.utils import getToolByName
 
 argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     ImageField('image',
@@ -30,7 +32,7 @@ argitalpenaSchema = folder.ATFolderSchema.copy() + atapi.Schema((
                 widget=atapi.ImageWidget(label=_(u'Image',
                                                 default=u'The image of this publication'),
                                          show_content_type=False,
-                      ),
+                ),
     ),
 
     FileField('file',
